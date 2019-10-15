@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="/static/bundle.js"></script>
+<script src="/static/comreq.js"></script>
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 .w3-sidebar {
@@ -37,10 +37,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
       <h1 class="w3-text-teal">PCDE Client</h1>
       <p>This server provides a client for interacting with the <a href="https://davinci-pcde-ri.logicahealth.org/">Da Vinci Payer Coverage Decision Exchange Reference Implementation.</a></p>
     </div>
-    <!-- <div class="w3-third w3-container">
-      <p class="w3-border w3-padding-large w3-padding-32 w3-center">AD</p>
-      <p class="w3-border w3-padding-large w3-padding-64 w3-center">AD</p>
-    </div> -->
+
   </div>
 
   <div class="w3-row">
@@ -53,14 +50,21 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
 
   <div class="w3-row w3-padding-64">
     <div class="w3-twothird w3-container">
-      <h1 class="w3-text-teal">Search for Bundle</h1>
-      <button id="gp" class="w3-hover-white submit-button" type="submit" name="bundle">Get Bundle</button><input id="pid" class="text-input" type="text" name="" value="" placeholder="enter the id">
+      <h1 class="w3-text-teal">Make Communication Request</h1>
+        <form>
+            Patient ID:<br>
+          <input id="pid" type="text" name="patient" placeholder="enter the id"><br>
+            Sender ID:<br>
+          <input id="sid" type="text" name="sender" placeholder="enter the id"><br>
+          Recipient ID:<br>
+        <input id="rid" type="text" name="sender" placeholder="enter the id"><br>
+        </form>
+      <button id="gp" class="w3-hover-white submit-button" type="submit" name="comreq">Send Communication Request</button>
     </div>
 
   </div>
   <div id="display" class="indent overflow"></div>
   <pre id="json"></pre>
-
   <br>
   <br>
   <br>
@@ -69,7 +73,6 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <div class="w3-container w3-theme-l2 w3-padding-32">
       <h4></h4>
     </div>
-
   </footer>
 
 <!-- END MAIN -->

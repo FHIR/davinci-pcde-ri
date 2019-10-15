@@ -3,6 +3,7 @@ $(function() {
     given = $("#given").val();
     family = $("#family").val();
     bdate = $("#bdate").val();
+    $("#display").html("<div></div>");
     $.getJSON('/getpatient?given='+given+'&family='+family+'&birthdate='+bdate,
         function(data) {
           console.log(data)

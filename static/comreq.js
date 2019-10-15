@@ -1,26 +1,21 @@
 $(function() {
   $('#gp').bind('click', function() {
-    id = $("#pid").val();
     $("#display").html("<div></div>");
-    $.getJSON('/getbundle?id='+id,
+    pid = $("#pid").val();
+    sid = $("#sid").val();
+    rid = $("#rid").val();
+    $.getJSON('/postcomreq?pid='+pid+'&sid='+sid+'&rid='+rid,
         function(data) {
-          formatter = formatResource(data);
-          $("#json").html("<h3>Full Bundle</h3>"+syntaxHighlight(JSON.stringify(formatter, undefined, 2)));
-          console.log(data);
-          var div = "<div><h2>"+data["entry"][0]["resource"]["title"]+"</h2>";
-          for (var i = 0; i < data["entry"].length; i++) {
-            if (data["entry"][i]["resource"]["resourceType"] == "Patient") {
-              div += "<h3>Patient</h3>"+data["entry"][i]["resource"]["text"]["div"];
-            }
-            else if (data["entry"][i]["resource"]["resourceType"] == "Organization") {
-              div += "<h3>Payor</h3>"+data["entry"][i]["resource"]["text"]["div"];
-            }
-            else if (data["entry"][i]["resource"]["resourceType"] == "CarePlan") {
-              div += "<h3>Care Plan</h3>"+data["entry"][i]["resource"]["text"]["div"];
-            }
-          }
+          console.log(data)
+          var div = "<div><h2>"+data["resourceType"]+"</h2>";
+          div += "<h3>Sender: "+ data["sender"]["reference"]+ "</h3>";
+          div += "<h3>Recipient: "+ data["recipient"][0]["reference"] + "</h3>";
+          div += "<h3>Subject: "+ data["subject"]["reference"]+ "</h3>";
+          div += "<h3>Payload: "+ data["payload"][0]["contentAttachment"]["data"]+ "</h3>";
           div += "</div>";
           $("#display").html(div);
+          //formatter = formatResource(data);
+          //$("#json").html(syntaxHighlight(data));
     });
     return false;
   });
