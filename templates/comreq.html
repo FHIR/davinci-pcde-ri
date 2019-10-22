@@ -36,6 +36,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">PCDE Client</h1>
       <p>This server provides a client for interacting with the <a href="https://davinci-pcde-ri.logicahealth.org/">Da Vinci Payer Coverage Decision Exchange Reference Implementation.</a></p>
+      <p>To use a different part of the client click on one of links on the side menu.</p>
     </div>
 
   </div>
@@ -43,7 +44,9 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
   <div class="w3-row">
     <div class="w3-twothird w3-container">
       <h1 class="w3-text-teal">FHIR Endpoint</h1>
-      <p>All requests are made to the endpoint: <a href="https://davinci-pcde-ri.logicahealth.org/fhir">https://davinci-pcde-ri.logicahealth.org/fhir</a></p>
+      <p>All requests are made to the endpoint: <a href="https://davinci-pcde-ri.logicahealth.org/fhir/PCDE">https://davinci-pcde-ri.logicahealth.org/fhir/PCDE</a></p>
+      <p>Note that this is not a traditional FHIR endpoint but is created as a custom endpoint to respond with the communication when a communication request is recieved</p>
+      <p>To send a sample communication request that will receive a valid communication with the PCDE Bundle, the patient ID needs to be 14 and the Organization IDs should be 16 and 17</p>
     </div>
 
   </div>

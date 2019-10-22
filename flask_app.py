@@ -55,7 +55,7 @@ def post_comrep():
     rid = request.args.get('rid')
     sid = request.args.get('sid')
     req_data = make_request(pid, sid, rid)
-    url = base_url + 'CommunicationRequest'
+    url = base_url + 'PCDE'
     r = requests.post(url, json = req_data, headers=headers, verify=False)
     json_data = json.loads(r.text)
     print (json_data["payload"][0]["contentAttachment"]["data"])
