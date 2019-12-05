@@ -7,6 +7,11 @@ Reference Implementation for the Da Vinci Payor Coverage Decision Exchange speci
 - pip3 install flask
 - pip3 install requests
 # Running the client
+## With Docker
+- docker build -t pcde-client:latest .
+- docker-compose up
+- The application will be live at http://0.0.0.0:5000/
+## With Flask
 - export FLASK_APP=flask_app.py
 - flask run
 - The application will be live at http://localhost:5000
@@ -17,13 +22,13 @@ to generate a custom CommunicationRequest to retrieve a Communication with the P
 Each of these features can be located by clicking on the corresponding button at the top of the site.
 There are several test examples already built into the server for interacting with it.
 - PCDE Bundle
-* Search with the ID 1
+  * Search with the ID 1
 - Patient
-* Search with names Joe Smith or Jeff Smith
-* Jeff Smith has two results so the birthdays can be used to refine the search: 1980-01-12 or 1980-01-13
+  * Search with names Joe Smith or Jeff Smith
+  * Jeff Smith has two results so the birthdays can be used to refine the search: 1980-01-12 or 1980-01-13
 - CommunicationRequest
-* Only one PCDE bundle currently exists on the server so the patient ID needs to be 14
-* The Organization IDs should be 16 and 17
+  * Only one PCDE bundle currently exists on the server so the patient ID needs to be 14
+  * The Organization IDs should be 16 and 17
 # How the client works
 The client runs on its own server locally and the requests are made through the backend. The required
 fields for each search are combined into a single request to be made to the reference server. Some of

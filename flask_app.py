@@ -110,4 +110,4 @@ def make_request(pid, sid, rid):
     return comreq
 
 if __name__ == "__main__":
-    app.run(ssl_context='adhoc')
+    app.run(debug=False, host='0.0.0.0')
